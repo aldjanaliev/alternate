@@ -2123,3 +2123,9 @@ footer{
 .reult_btn span{
 	width: calc(100% - 65px);
 }
+.result_page{
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
