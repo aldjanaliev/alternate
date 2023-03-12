@@ -2047,7 +2047,6 @@ footer{
 	padding: 0;
 }
 .result_wrap{
-	min-height: 638px;
 	display: flex;
 	align-items: center;
 }
