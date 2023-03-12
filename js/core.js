@@ -166,4 +166,21 @@ $(document).ready(function() {
     return false;
   });
 
+  // video
+  $(document).on("click", ".video-close", function(){
+        $(".video-open").removeClass("video-open")
+        $("#video")[0].muted = true
+    })
+    $(document).on("click", ".video-close-always", function(){
+        $(".video").remove()
+    })
+    $(document).on("click", ".video", function(e){
+        if($(e.target).is(".video-close") || $(e.target).is(".video-close-always")) return false
+        let vd = $(this)
+        if(!vd.hasClass("video-open")){
+            vd.addClass("video-open")
+            $("#video")[0].muted = false
+        }
+    })
+
 })

@@ -6,3 +6,7 @@
     background-size: auto 70%;
 	}
 }
+@media (max-width: 768px) {
+	.video-close-always { opacity: 1; }
+	.video:hover { transform: translate(0px, 0px) !important; }
+}
