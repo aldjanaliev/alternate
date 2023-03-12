@@ -150,4 +150,20 @@ $(document).ready(function() {
       break;
   }
 
+  // send form
+  $('form').on('submit', function(){
+    event.preventDefault();
+    var th = $(this);
+    window.open('result.html')
+    // $.ajax({
+    //   type: "POST",
+    //   url: "mail.php",
+    //   data: th.serialize(),
+    // }).done(function() {
+    //   th.trigger("reset");
+    //   console.log('send is success')
+    // });
+    return false;
+  });
+
 })
