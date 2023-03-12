@@ -1573,6 +1573,7 @@ h1 span{
 }
 .care_img-wrap{
 	width: 562px;
+	position: relative;
 }
 .care_content{
 	width: calc(100% - 562px);
@@ -1592,6 +1593,31 @@ h1 span{
 	max-width: 510px;
 	font-size: 20px;
 	line-height: 27px;
+}
+.care_tag{
+	position: absolute;
+	bottom: 15px;
+	left: 0;
+	background: linear-gradient(96.77deg, #F94242 2.86%, #C92D2D 32.26%, #FF7A7A 67.06%, #610000 102.59%);
+	border: 1px solid #C92D2D;
+	box-shadow: 0px 7px 22px rgba(0, 0, 0, 0.25);
+	border-radius: 15px;
+	transform: rotate(10deg);
+	font-family: 'Bebas Neue', sans;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 28px;
+	line-height: 28px;
+	text-align: center;
+	color: #FFFFFF;
+	padding: 5px;
+}
+.care_tag-txt{
+	width: 202px;
+	padding: 20px;
+	display: block;
+	border: 1px dashed #FF9D9D;
+	border-radius: 15px;
 }
 .sale .sec_title{
 	margin-bottom: 25px;
