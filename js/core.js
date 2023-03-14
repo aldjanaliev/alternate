@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  const lastQuiz = $('.quiz').length
+  $(`.quiz-${lastQuiz-2}`).addClass('quiz-load')
 	// ====== inputmask ======
 	$('[type="tel"]').inputmask('+7 (999) 999-99-99');
 
@@ -154,7 +156,11 @@ $(document).ready(function() {
   $('form').on('submit', function(){
     event.preventDefault();
     var th = $(this);
-    window.open('result.html')
+    if($(this).hasClass('form_quiz')){
+      quizChange(lastQuiz - 1, lastQuiz)
+    } else{
+      window.open('result.html')
+    }
     // $.ajax({
     //   type: "POST",
     //   url: "mail.php",
@@ -168,19 +174,166 @@ $(document).ready(function() {
 
   // video
   $(document).on("click", ".video-close", function(){
-        $(".video-open").removeClass("video-open")
-        $("#video")[0].muted = true
-    })
-    $(document).on("click", ".video-close-always", function(){
-        $(".video").remove()
-    })
-    $(document).on("click", ".video", function(e){
-        if($(e.target).is(".video-close") || $(e.target).is(".video-close-always")) return false
-        let vd = $(this)
-        if(!vd.hasClass("video-open")){
-            vd.addClass("video-open")
-            $("#video")[0].muted = false
-        }
-    })
+    $(".video-open").removeClass("video-open")
+    $("#video")[0].muted = true
+  })
+  $(document).on("click", ".video-close-always", function(){
+    $(".video").remove()
+  })
+  $(document).on("click", ".video", function(e){
+    if($(e.target).is(".video-close") || $(e.target).is(".video-close-always")) return false
+    let vd = $(this)
+    if(!vd.hasClass("video-open")){
+        vd.addClass("video-open")
+        $("#video")[0].muted = false
+    }
+  })
 
+  // счетчик
+  function outNum(num, elem) {
+    const time = 3000
+    const step = 2
+    let e = document.querySelector(elem)
+    n = 0
+    let t = Math.round(time / (num / step))
+    let interval = setInterval(() => {
+      n = n + step
+      if (n == num) {
+        clearInterval(interval)
+      }
+      e.innerHTML = n
+    }, t)
+  };
+  // прогресс
+  function loadStart() {
+    $('.progress').append(`
+      <div class="load">
+        <svg class="origami" width="360" height="360" viewBox="-3 -3 41 41">
+          <g class="group2">
+            <path d="M18 2.0845
+              a 15.9155 15.9155 0 0 1 0 31.831
+              a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#836A36" stroke-width="1.5" stroke-linecap="round">
+            <animate attributename="stroke-dasharray" dur="3s" from="0, 100" to="100, 100" fill="freeze"></animate>
+          </g>
+          <div class="load_body">
+            <span class="load-num load-counter">100</span>
+            <span class="load-num">%</span>
+          </div>
+        </svg>
+      </div>
+    `)
+  }
+
+  //  функционал смены квизов
+  
+  function loadQuiz(){
+    loadStart()
+    outNum(100, ".load-counter")
+    setTimeout(() => {
+      gifName = $('.quiz-gif .rad:checked').val()
+      gifNum = $('.quiz-gif .rad:checked').closest('.quiz_item').index() + 1
+      console.log(gifNum)
+      $('.quiz_side-title__js').text(gifName)
+      $('.js-quiz_contact-img').attr("src",`img/quiz/gif-${gifNum}.jpg`)
+      quizChange(lastQuiz - 2, lastQuiz - 1)
+    },3500)
+  }
+  function quizChange(arg1, arg2){
+    setTimeout(function() {
+      $('.quiz-' + arg1).css({'opacity':'0'})
+      $('html, body').animate({
+        scrollTop: $('#quiz').offset().top
+      });
+      // move tab-load
+      let count = arg2
+      let tabWidth = Math.round(count * 100 / (lastQuiz - 2))
+      if(count === lastQuiz - 2){
+        tabWidth = 100
+      }
+      $('.quiz_tab-load').css('width', tabWidth + '%')
+      $('.quiz_tab-percent').text(tabWidth)
+    }, 1000)
+    setTimeout(function() {
+      $('.quiz-' + arg1).hide()
+      $('.quiz-' + arg2).css({'display':'flex'})
+    },1300)
+    setTimeout(function() {
+      $('.quiz-' + arg2).css({'opacity':'1'})
+      if(arg2 === lastQuiz - 2){
+       setTimeout(() => {
+          loadQuiz()
+        },500)
+      } else if(arg2 === lastQuiz - 1){
+        $(`.quiz-wrap`).addClass('quiz_get-contact')
+      } else if(arg2 === lastQuiz){
+        $(`.quiz-wrap`).addClass('quiz_end')
+      }
+    },1350)
+  }
+
+  
+  $('.quiz_btn').on('click', function(){
+    const currentQuiz = $(this).closest('.quiz').index() + 1
+    let nextQuiz = currentQuiz + 1
+    if($(this).hasClass('quiz_btn__prev')){
+      nextQuiz = currentQuiz - 1
+      //очищаем предыдущий вопрос
+      const prevQuiz = $(`.quiz`).eq(currentQuiz - 2)
+      prevQuiz.find('input:checked').prop('checked', false)
+      prevQuiz.find('.quiz_btn__next').removeClass('active')
+      if(prevQuiz.find('textarea').length != 0){
+        prevQuiz.find('textarea').val('')
+        prevQuiz.find('textarea').closest('.quiz_item').find('input').val('')
+      }
+    }
+    quizChange(currentQuiz,nextQuiz)
+  })
+
+  $('.rad, .check').on('change',function(){
+    const nextBtn = $(this).closest('.quiz').find('.quiz_btn__next')
+    if($(this).hasClass('rad')){
+      nextBtn.addClass('active')
+      nextBtn.click()
+    }
+    if($(this).hasClass('check')){
+      if($(this).closest('.quiz_items').find('input:checked').length === 0){
+        nextBtn.removeClass('active')
+      } else{
+        nextBtn.addClass('active')
+      }
+      if($(this).val() === "Пока не решил"){
+        $(this).closest('.quiz_items').find('input:checked').not($(this)).prop('checked', false)
+        nextBtn.addClass('active')
+        nextBtn.click()
+      }
+    }
+  })
+
+  $('.quiz_textarea').on('input',function(){
+    const textInput = $(this).closest('.quiz_item').find('input')
+    const nextBtn = $(this).closest('.quiz').find('.quiz_btn__next')
+    if($(this).val().length > 2){
+      textInput.val($(this).val())
+      if(!textInput.prop('checked')){
+        textInput.prop('checked', true)
+      }
+      if(!nextBtn.hasClass('active')){
+        nextBtn.addClass('active')
+      }
+    } else{
+      textInput.val('')
+      textInput.prop('checked', false)
+      if($(this).closest('.quiz').find('input:checked').length === 0){
+        nextBtn.removeClass('active')
+        textInput.prop('checked', false)
+      }
+    }
+  })
+
+
+
+
+  
+
+  
 })

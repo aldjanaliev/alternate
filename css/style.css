@@ -42,7 +42,8 @@ textarea{
 	font-size: inherit;
 	font-weight: inherit;
 }
-input[type="radio"]{
+input[type="radio"],
+input[type="checkbox"]{
 	display: none;
 }
 input::placeholder {
@@ -511,6 +512,81 @@ h1 span{
 	right: 60px;
   bottom: -6px;
 }
+.quiz-block{
+	padding-bottom: 0;
+	overflow: hidden;
+}
+.quiz-wrap{
+	transition: 0.3s;
+	position: relative;
+	padding-bottom: 100px;
+}
+.quiz_get-contact{
+	padding-bottom: 430px;
+}
+.quiz_end{
+	padding-bottom: 100px;
+}
+.quiz_end .quiz_shadow{
+	z-index: 2;
+}
+.quiz_get-contact .teaser{
+	display: block;
+	animation: teaser 1s linear infinite alternate-reverse;
+}
+.quiz_end .teaser{
+	display: none;
+}
+.teaser{
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: #FFFFFF;
+	box-shadow: 0px 5px 44px rgba(121, 121, 121, 0.2);
+	border-radius: 10px 10px 0 0;
+	width: 100%;
+	font-weight: 500;
+	font-size: 42px;
+	line-height: 140%;
+	text-align: center;
+	height: 350px;
+	padding-top: 140px;
+	display: none;
+}
+.teaser::before {
+  content: '';
+  position: absolute;
+  background: #FFFFFF;
+  box-shadow: 0px 15px 50px rgb(121 121 121 / 25%);
+  border-radius: 10px;
+  top: -30px;
+  left: 40px;
+  right: 40px;
+  bottom: -30px;
+  z-index: -1;
+}
+@keyframes teaser{
+	0%{
+		height: 320px;
+	}
+	100%{
+		height: 280px;
+	}
+}
+.teaser_ic{
+	width: 185px;
+	height: 185px;
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background: url(../img/icons/lock.jpg);
+	background-size: 100% 100%;
+	border-radius: 50%;
+	overflow: hidden;
+	box-shadow: 0px 10px 0px rgba(0, 0, 0, 0.05);
+}
 .quiz .sec_title{
 	margin-bottom: 30px;
 }
@@ -547,6 +623,7 @@ h1 span{
 	box-shadow: inset 0px 4px 16px rgba(0, 0, 0, 0.1);
 	border-radius: 10px;
 	overflow: hidden;
+	transition: 0.3s;
 }
 .quiz_tab-txt{
 	line-height: 42px;
@@ -570,7 +647,13 @@ h1 span{
 	background-size: auto 100%;
 }
 .quiz{
+	transition: 0.3s;
+	display: none;
+	opacity: 0;
+}
+.quiz-1{
 	display: flex;
+	opacity: 1;
 }
 .quiz_main{
 	padding: 112px 67px 40px 0;
@@ -585,12 +668,12 @@ h1 span{
 .quiz_desc{
 	font-size: 18px;
 	line-height: 25px;
+	max-width: 688px;
 	margin-bottom: 40px;
 }
 .quiz_items{
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	padding-bottom: 15px;
 }
 .quiz_item{
@@ -600,6 +683,10 @@ h1 span{
 	overflow: hidden;
 	margin-bottom: 25px;
 	transition: 0.3s;
+	margin-right: 25px;
+}
+.quiz_item:nth-child(4n){
+	margin-right: 0;
 }
 .quiz_item:hover{
 	box-shadow: 0 3px 10px rgba(0,0,0,0.3);
@@ -611,7 +698,7 @@ h1 span{
 	display: block;
 	width: 100%;
 	height: 75px;
-	padding: 15px 0 0 55px;
+	padding: 15px 3px 0 55px;
 }
 .quiz_name-wrap{
 	position: relative;
@@ -638,18 +725,25 @@ h1 span{
 	transition: 0.3s;
 	opacity: 0;
 }
+.check_block .quiz_name-wrap::before,
+.check_block .quiz_name-wrap::after{
+	border-radius: 0;
+}
 .quiz_name{
 	font-size: 16px;
 	line-height: 22px;
 	display: block;
 	margin-bottom: 3px;
 }
-.quiz_desc{
+.quiz_name-desc{
 	font-size: 9px;
 	line-height: 12px;
 }
-.rad:checked+.quiz_name-wrap::after{
+.quiz_label > input:checked+.quiz_name-wrap::after{
 	opacity: 1;
+}
+.quiz_item__sm{
+	align-self: flex-start;
 }
 .quiz_item__sm .quiz_label{
 	padding: 21px 0 21px 55px;
@@ -677,6 +771,11 @@ h1 span{
 	width: 191px;
 	background: linear-gradient(95.56deg, #333338 1.02%, #4E4E4E 64.88%, #333338 97.55%);
 	border-radius: 10px;
+	cursor: default;
+	pointer-events: none;
+}
+.quiz_btn__next.active{
+	pointer-events: auto;
 }
 .quiz_btn span{
 	display: block;
@@ -718,12 +817,14 @@ h1 span{
 	width: 98px;
 	padding: 0 35px 0 0;
 }
+.quiz_btn__next.active span::after,
 .quiz_btn__next:hover span::after{
 	opacity: 1;
 }
 .quiz_btn__prev:hover{
 	color: #F3C87A;
 }
+.quiz_btn__next.active,
 .quiz_btn__next:hover{
 	background: url(../img/icons/btn_bg.png), linear-gradient(93.71deg, #F3C87A -1.69%, #F3EECA 37.69%, #B39556 77.32%, #EED489 110.18%);
 	box-shadow: 0px 4px 0px #836A36;
@@ -806,6 +907,33 @@ h1 span{
 	width: 85px;
 	height: 1px;
 }
+.quiz_img{
+	position: relative;
+}
+.quiz_img__textarea{
+	padding: 10px 10px 0 10px;
+	height: 100%;
+}
+.quiz_textarea{
+	padding: 10px;
+	font-size: 12px;
+	line-height: 16px;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	border-radius: 10px 10px 0px 0px;
+}
+.quiz_img[data-fancybox]::before{
+	content: '';
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: #F3C87A url(../img/icons/zoom.png) center no-repeat;
+}
 .quiz_img-name{
 	left: 0;
 	right: 0;
@@ -860,6 +988,129 @@ h1 span{
 	width: 35px;
 	height: 35px;
 	color: #D7D7D7;
+}
+.quiz_side-bot{
+	max-width: 218px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 22px;
+	margin: 30px auto 0;
+}
+.quiz:nth-last-child(2) .quiz_side-img{
+	margin-top: 100px;
+}
+.quiz:nth-last-child(2) .quiz_side-in{
+	background: none;
+}
+.quiz_contact-mes{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.quiz_contacts{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.quiz_contacts .catalog_form{
+	flex-direction: column;
+	width: 316px;
+	padding: 0;
+}
+.quiz_contacts .input_wrap{
+	width: 100%;
+	margin-bottom: 20px;
+}
+.quiz_contacts .btn_wrap .btn{
+	width: 100%;
+	font-weight: 800;
+	font-size: 16px;
+	line-height: 22px;
+	padding: 13px;
+}
+.quiz_contact-content{
+	width: calc(100% - 272px);
+	padding-left: 58px;
+}
+.quiz_contact-title{
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 49px;
+	margin-bottom: 20px;
+}
+.quiz_contact-desc{
+	font-size: 22px;
+	line-height: 30px;
+	margin-bottom: 40px;
+}
+.quiz_end .quiz_tab{
+	opacity: 0;
+}
+.quiz_end .quiz_shadow::after{
+	content: '';
+	position: absolute;
+	width: 159px;
+	height: 159px;
+	left: 50%;
+	bottom: 0;
+	transform: translate(-50%,50%);
+	background: url(../img/icons/th_icon.jpg) center;
+	background-size: 100% 100%;
+	border-radius: 50%;	
+}
+.quiz_th{
+	padding: 32px 0 57px;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+}
+.th_img{
+	width: 480px;
+}
+.th_content{
+	width: calc(100% - 480px);
+	padding: 23px 17px;
+}
+.th_title{
+	font-weight: 800;
+	font-size: 42px;
+	line-height: 57px;
+	text-transform: uppercase;
+	margin-bottom: 30px;
+}
+.th_desc{
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 33px;
+	text-transform: uppercase;
+	margin-bottom: 25px;
+}
+.th_list-title{
+	font-size: 18px;
+	line-height: 25px;
+	margin-bottom: 25px;
+}
+.th_list{
+	font-size: 18px;
+	line-height: 25px;
+	margin-bottom: 25px;
+}
+.red{
+	color: #F20707;
+	display: inline-block;
+}
+.th_txt{
+	font-size: 20px;
+	line-height: 27px;
+	margin-bottom: 25px;
+	max-width: 587px;
+}
+.th_bot{
+	font-weight: 500;
+	font-size: 22px;
+	line-height: 30px;
+	max-width: 591px;
 }
 
 
@@ -1142,7 +1393,7 @@ h1 span{
 	border-radius: 10px;
 	width: 85px;
 	height: 85px;
-	padding: 53px 13px 16px;
+	padding: 53px 0 16px;
 	font-size: 12px;
 	line-height: 16px;
 	background: linear-gradient(180deg, #ACACAC 51.26%, #7C7C7C 100%);
@@ -2506,4 +2757,57 @@ footer{
 	z-index: 3;
 	display: block;
 	width: 140px;
+}
+/* loading */
+.progress-wrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
+}
+.progress{
+	width: 247px;
+	height: 247px;
+	background: url(../img/load_bg.png) center;
+	background-size: 100% 100%;
+	position: relative;
+	border-radius: 100%;
+	box-shadow: 0px 35px 20px -13px rgba(0, 0, 0, 0.1), inset 0px 4px 22px rgba(0, 0, 0, 0.25);
+}
+.progress-wrap svg{
+  width: 240px;
+  height: 240px;
+  display: block;
+}
+.progress-wrap .txt2{
+  font-size: 6px;
+  letter-spacing: 1px;
+}
+.load_body{
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+  z-index: 10;
+  width: 115px;
+  right: 80px;
+  text-align: right;
+}
+.load_body span{
+	font-weight: 800;
+	font-size: 42px;
+	line-height: 1;
+	color: #836A36;
+	margin: 0 -2px;
+	transition: 0.4s;
+	display: inline-block;
+}
+.load{
+	opacity: 0;
+	animation: load_start 0.1s linear;
+	animation-fill-mode: forwards;
+}
+@keyframes load_start{
+	0%{}
+	100%{opacity: 1;}
 }
