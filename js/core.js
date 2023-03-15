@@ -152,15 +152,20 @@ $(document).ready(function() {
       break;
   }
 
+  $('[type="tel"]').on('input', function(){
+    const formBtn = $(this).closest('form').find('button[type="submit"]')
+    if(!$(this).val().includes('_')){
+      formBtn.addClass('active')
+    } else if(formBtn.hasClass('active')){
+      console.log(123)
+      formBtn.removeClass('active')
+    }
+  });
+
   // send form
   $('form').on('submit', function(){
     event.preventDefault();
     var th = $(this);
-    if($(this).hasClass('form_quiz')){
-      quizChange(lastQuiz - 1, lastQuiz)
-    } else{
-      window.open('result.html')
-    }
     // $.ajax({
     //   type: "POST",
     //   url: "mail.php",
@@ -168,7 +173,17 @@ $(document).ready(function() {
     // }).done(function() {
     //   th.trigger("reset");
     //   console.log('send is success')
+        $('[type="tel"]').val($(this).find('[type="tel"]').val())
+        $('form button[type="submit"]').addClass('active')
+        if($(this).hasClass('form_quiz')){
+          quizChange(lastQuiz - 1, lastQuiz)
+        } else{
+          window.open('result.html')
+        }
     // });
+
+    
+
     return false;
   });
 
@@ -262,7 +277,7 @@ $(document).ready(function() {
       if(arg2 === lastQuiz - 2){
        setTimeout(() => {
           loadQuiz()
-        },500)
+        },200)
       } else if(arg2 === lastQuiz - 1){
         $(`.quiz-wrap`).addClass('quiz_get-contact')
       } else if(arg2 === lastQuiz){

@@ -93,6 +93,16 @@ body{
 .btn:hover{
 	box-shadow: 0px 6px 5px 2px #836A36;
 }
+form button[type="submit"]{
+	cursor: default;
+	pointer-events: none!important;
+	opacity: 0.7;
+}
+form button[type="submit"].active{
+	cursor: pointer;
+	pointer-events: auto!important;
+	opacity: 1;
+}
 .input_wrap{
 	background: #F3F3F3;
 	border-radius: 10px;
@@ -1112,10 +1122,6 @@ h1 span{
 	line-height: 30px;
 	max-width: 591px;
 }
-
-
-
-
 .history .sec_title{
 	margin-bottom: 35px;
 }
