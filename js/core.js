@@ -253,7 +253,7 @@ $(document).ready(function() {
   }
 
   //  функционал смены квизов
-  
+  let loadQuizCount = 0
   function loadQuiz(){
     loadStart()
     outNum(100, ".load-counter")
@@ -282,17 +282,17 @@ $(document).ready(function() {
         $('.quiz_tab-load').css('width', tabWidth + '%')
         $('.quiz_tab-percent').text(tabWidth)
       }
-
-    }, 1000)
+    },1000)
     setTimeout(function() {
       $('.quiz-' + arg1).hide()
       $('.quiz-' + arg2).css({'display':'flex'})
     },1300)
     setTimeout(function() {
       $('.quiz-' + arg2).css({'opacity':'1'})
-      if(arg2 === lastQuiz - 2 && $('.progress').length != 0){
-       setTimeout(() => {
+      if(arg2 === lastQuiz - 2 && loadQuizCount === 0){
+        setTimeout(() => {
           loadQuiz()
+          loadQuizCount++
         },200)
       } else if(arg2 === lastQuiz - 1){
         $(`.quiz-wrap`).addClass('quiz_get-contact')

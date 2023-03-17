@@ -1405,10 +1405,6 @@
 		font-size: 18px;
 		line-height: 25px;
 	}
-	.video{
-		width: 70px;
-		height: 100px;
-	}
 	.video-countainer{
     height: calc(100% - 4px);
     width: calc(100% - 4px);
