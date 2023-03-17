@@ -737,6 +737,7 @@ h1 span{
 	border-radius: 50%;
 	transition: 0.3s;
 	opacity: 0;
+	display: block;
 }
 .check_block .quiz_name-wrap::before,
 .check_block .quiz_name-wrap::after{
@@ -1135,24 +1136,29 @@ h1 span{
 	font-weight: 800;
 	font-size: 24px;
 	line-height: 33px;
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 }
 .history_desc{
-	margin-bottom: 30px;
+	margin-bottom: 23px;
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 25px;
+}
+.history_info{
+	padding-bottom: 15px;
 }
 .history_info span{
 	display: block;
 	font-weight: 800;
 	font-size: 18px;
 	line-height: 25px;
-	padding-bottom: 30px;
+	padding-bottom: 5px;
 }
 .history_info p{
 	font-weight: 400;
-	padding-bottom: 30px;
+	padding-bottom: 20px;
+	font-size: 16px;
+	line-height: 21px;
 }
 .history_block{
 	display: flex;
@@ -1269,12 +1275,11 @@ h1 span{
 	border-color: #F3C87A!important;
 	color: #F3C87A!important;
 }
-.history_in .block__hide{
-	padding-top: 60px;
+.history_in .block__hide .history_block{
+	padding-top: 80px;
 }
 .block__hide{
 	display: none;
-	padding-top: 60px;
 }
 .works .sec_title{
 	margin-bottom: 15px;
@@ -1388,6 +1393,9 @@ h1 span{
 	max-width: 424px;
 	text-align: left;
 	margin-bottom: 60px;
+}
+.catalog .sec_desc .color{
+	font-weight: 800;
 }
 .catalog_form{
 	display: flex;
@@ -2838,4 +2846,20 @@ footer{
 }
 .h_mob-wrap{
 	display: none;
+}
+.slick-dots{
+	display: flex;
+	padding-top: 20px;
+	justify-content: center;
+	font-size: 0;
+}
+.slick-dots li{
+	width: 8px;
+	height: 8px;
+	margin: 0 4px;
+	background: #ACACAC;
+	border-radius: 50%;
+}
+.slick-dots .slick-active{
+	background: #BE963F;
 }

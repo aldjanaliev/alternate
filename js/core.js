@@ -33,10 +33,11 @@ $(document).ready(function() {
 	})
 
   $('.sale_slider').slick({
-    dots: false,
+    dots: true,
     infinite: false,
     slidesToShow: 3,
     slidesToScroll: 1,
+    autoplay: 3000,
     responsive: [
       {
         breakpoint: 1200,
@@ -289,7 +290,7 @@ $(document).ready(function() {
     },1300)
     setTimeout(function() {
       $('.quiz-' + arg2).css({'opacity':'1'})
-      if(arg2 === lastQuiz - 2){
+      if(arg2 === lastQuiz - 2 && $('.progress').length != 0){
        setTimeout(() => {
           loadQuiz()
         },200)
