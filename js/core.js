@@ -12,7 +12,6 @@ $(document).ready(function() {
       infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-    	//autoplay: 300,
       asNavFor: slideTab
     })
 	})
@@ -28,7 +27,6 @@ $(document).ready(function() {
       infinite: false,
       slidesToShow: numTabSlider,
       slidesToScroll: 1,
-    //   autoplay: 300,
       asNavFor: slideTab,
       focusOnSelect: true
     })
@@ -39,7 +37,21 @@ $(document).ready(function() {
     infinite: false,
     slidesToShow: 3,
     slidesToScroll: 1,
-  //   autoplay: 300,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 770,
+        settings: {
+          slidesToShow: 1,
+          dots: true,
+        }
+      }
+    ]
   })
 
 	if(document.querySelector('.to-show_btn')){
@@ -260,13 +272,16 @@ $(document).ready(function() {
         scrollTop: $('#quiz').offset().top
       });
       // move tab-load
-      let count = arg2
-      let tabWidth = Math.round(count * 100 / (lastQuiz - 2))
-      if(count === lastQuiz - 2){
-        tabWidth = 100
+      if(arg2 < lastQuiz - 1){
+        let count = arg2
+        let tabWidth = Math.round(count * 100 / (lastQuiz - 2))
+        if(count === lastQuiz - 2){
+          tabWidth = 100
+        }
+        $('.quiz_tab-load').css('width', tabWidth + '%')
+        $('.quiz_tab-percent').text(tabWidth)
       }
-      $('.quiz_tab-load').css('width', tabWidth + '%')
-      $('.quiz_tab-percent').text(tabWidth)
+
     }, 1000)
     setTimeout(function() {
       $('.quiz-' + arg1).hide()
@@ -345,7 +360,9 @@ $(document).ready(function() {
     }
   })
 
-
+  $('.h_button').on('click', function(){
+    $('.h_mob-add-wrap').slideToggle(300)
+  })
 
 
   

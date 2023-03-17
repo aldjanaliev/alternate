@@ -180,7 +180,7 @@ form button[type="submit"].active{
 	top: 50%;
 	transform: translateY(-50%);
 	left: 50%;
-	margin-left: 690px;
+	margin-left: 650px;
 	z-index: 1000;
 	padding-top: 30px;
 	transition: 0.3s;
@@ -281,6 +281,9 @@ header{
 }
 .logo{
 	width: 211px;
+}
+.logo_sm{
+	display: none;
 }
 .head_desc{
 	max-width: 240px;
@@ -1472,6 +1475,7 @@ h1 span{
 }
 .revs_row{
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 	margin: 0 -10px;
 }
@@ -2816,4 +2820,22 @@ footer{
 @keyframes load_start{
 	0%{}
 	100%{opacity: 1;}
+}
+.record_img-wrap__mob{
+	display: none;
+}
+.md{
+	display: none;
+}
+.sale_form .btn{
+	opacity: 1;
+}
+.quiz_get-contact.quiz_end{
+	padding-bottom: 30px;
+}
+.header_mob{
+	display: none;
+}
+.h_mob-wrap{
+	display: none;
 }

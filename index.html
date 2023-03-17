@@ -49,7 +49,8 @@
 			<div class="container">
 				<div class="head_top">
 					<div class="logo">
-						<img src="img/logo.png" alt="">
+						<img class="logo_big" src="img/logo.png" alt="">
+						<img class="logo_sm" src="img/logo-min.png" alt="">
 					</div>
 					<p class="head_desc">Изготавливаем и устанавливаем <br> кухни на заказ в Москве<br>и области с 2017 года</p>
 					<a href="#quiz" class="head_link scroll">
@@ -99,6 +100,57 @@
 			</div>
 		</div>
 	</header>
+
+	<div class="h_mob-wrap">
+		<div class="h_mob h_mob-main-wrap">
+			<div class="container">
+				<div class="h_mob-main">
+					<div class="logo">
+						<img src="img/logo-min.png" alt="">
+					</div>
+					<div class="h_links">
+						<a href="https://api.whatsapp.com/send?phone=+79252356165&text=Здравствуйте, хочу узнать стоимость кухни и получить дизайн-проект" class="h_link h_link__wa" target="_blank">
+							<span>Написать</span>
+							<i></i>
+						</a>
+						<a href="tel:+79252356165" class="h_link h_link__tel">
+							<span>Позвонить</span>
+							<i></i>
+						</a>
+					</div>
+					<button class="h_button h_button__open"></button>
+				</div>
+			</div>
+		</div>
+		<div class="h_mob h_mob-add-wrap">
+			<div class="container">
+				<div class="h_mob-add">
+					<div class="h_mob-top">
+						<div class="logo">
+							<img src="img/logo-min.png" alt="">
+						</div>
+						<p class="h_mob-desc">Изготавливаем и устанавливаем кухни на заказ в Москве и области с 2017 г.</p>
+						<button class="h_button h_button__close"></button>
+					</div>
+					<div class="h_mob-bot">
+						<div class="h_links">
+							<a href="https://api.whatsapp.com/send?phone=+79252356165&text=Здравствуйте, хочу узнать стоимость кухни и получить дизайн-проект" class="h_link h_link__wa" target="_blank">
+								<span>Написать</span>
+								<i></i>
+							</a>
+							<a href="tel:+79252356165" class="h_link h_link__tel">
+								<span>Позвонить</span>
+								<i></i>
+							</a>
+							<a href="#form_callback" class="h_link h_link__call" target="_blank" data-fancybox>
+								<span>Быстрая <br>консультация</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<section class="main">
 		<div class="container">
@@ -1464,8 +1516,6 @@
 						  <p class="rev_txt">“... Замерщик всё подсказал. Привезли очень быстро. Монтажники сделали всё красиво..”</p>
 						</a>
 					</div>
-				</div>
-				<div class="revs_row">
 					<div class="rev">
 						<a href="" class="rev_in" data-fancybox>
 							<div class="rev_img play">
@@ -1621,6 +1671,15 @@
 				<div class="record_content">
 					<div class="sec_title">Запишитесь на выезд дизайнера - замерщика</div>
 					<div class="sec_desc">и получите точный расчет стоимости кухни + дизайн-проект с 3D-визуализацией в подарок</div>
+					<div class="record_img-wrap record_img-wrap__mob">
+						<div class="record_img">
+						  <img src="img/record_img.png" alt="">
+						</div>
+						<div class="record_img-txt">
+							<span class="reccord_name">Светлана Калашникова</span>
+							<span class="reccord_job">Дизайнер - замерщик </span>
+						</div>
+					</div>
 					<div class="record_info">
 						<form class="form">
 							<input type="hidden" name="Тема" value="Выезд дизайнера">
@@ -1637,7 +1696,7 @@
 						<a href="https://api.whatsapp.com/send?phone=+79252356165&text=Здравствуйте, хочу узнать стоимость кухни и получить дизайн-проект" class="record_link" target="_blank">или напишите напрямую в WhatsApp</a>
 					</div>
 				</div>
-				<div class="record_img-wrap">
+				<div class="record_img-wrap record_img-wrap__desk">
 					<div class="record_img">
 					  <img src="img/record_img.png" alt="">
 					</div>
@@ -1731,6 +1790,7 @@
 
 	<section class="section contract sec_grey">
 		<div class="container">
+			<div class="sec_title md">Заключаем официальный договор и даём юридические гарантии</div>
 			<div class="contract_in">
 				<div class="contract_img-wrap">
 					<div class="contract_img">
@@ -1739,7 +1799,7 @@
 					<a href="contract.pdf" class="contract_img-txt" target="_blank">Смотреть шаблон договора</a>
 				</div>
 				<div class="contract_content">
-					<div class="sec_title">Заключаем официальный договор и даём юридические гарантии</div>
+					<div class="sec_title lg">Заключаем официальный договор и даём юридические гарантии</div>
 					<div class="contract_cards">
 						<div class="contract_card">
 							<div class="contract_card-name">Гарантия на кухню</div>
@@ -2097,12 +2157,17 @@
 		<div class="container">
 			<div class="control_in">
 				<div class="control_content">
-					<div class="sec_desc control_desc__sm">Сопровождаем Вас после установки кухни</div>
+					<div class="lg"><div class="sec_desc control_desc__sm">Сопровождаем Вас после установки кухни</div>
 					<div class="sec_title">Всегда на связи отдел контроля качества</div>
-					<div class="sec_desc control_desc__big">В случае непредвиденной ситуации или гарантийного случая, консультируем или исправляем в максимально сжатые сроки. </div>
+					<div class="sec_desc control_desc__big">В случае непредвиденной ситуации или гарантийного случая, консультируем или исправляем в максимально сжатые сроки. </div></div>
 					<p class="control_txt">За 5 лет изготовили и установили 1579 кухонь. <br> Из них 37 нестандартных ситуаций, которые решил <span class="color">Сергей</span></p>
 				</div>
 				<div class="control_img-wrap">
+					<div class="md">
+						<div class="sec_desc control_desc__sm">Сопровождаем Вас после установки кухни</div>
+						<div class="sec_title">Всегда на связи отдел контроля качества</div>
+						<div class="sec_desc control_desc__big">В случае непредвиденной ситуации или гарантийного случая, консультируем или исправляем в максимально сжатые сроки. </div>
+					</div>
 					<div class="control_img">
 						<img src="img/control_img.png" alt="">
 					</div>
@@ -2159,15 +2224,15 @@
 	<footer class="sec_grey">
 		<div class="container">
 			<div class="foot">
-				<div class="foot_item">
+				<div class="foot_item foot_item__policy">
 					<p class="foot_txt foot_txt__big">© 2021”Кухни Альтернатива”</p>
-					<a href="policy.pdf" class="foot_link-policy">Политика конфиденциальности</a>
+					<a href="policy.pdf" class="foot_link-policy" target="_blank">Политика конфиденциальности</a>
 				</div>
 				<div class="foot_item">
 					<p class="foot_txt">ИНН 580304443383</p>
 					<p class="foot_txt">ОГРН 320583500045870</p>
 				</div>
-				<div class="foot_item">
+				<div class="foot_item foot_item__wa">
 					<a href="https://api.whatsapp.com/send?phone=+79252356165&text=Здравствуйте, хочу узнать стоимость кухни и получить дизайн-проект" class="foot_link" target="_blank">
 						<p>Есть вопрос? <br>Задайте его в <span class="green">WhatsApp</span></p>
 						<span class="foot_link-desc">Среднее время ответа 30 секунд</span>
@@ -2180,7 +2245,7 @@
 						<p>Ежедневно с 10:00 до 20:00</p>
 					</div>
 				</div>
-				<div class="foot_item">
+				<div class="foot_item foot_item__dev">
 					<p class="foot_txt">Разработка сайта <a href="https://vk.com/timohaaleksei" target="_blank" class="dev_link">Alexmarketing</a></p>
 				</div>
 			</div>
