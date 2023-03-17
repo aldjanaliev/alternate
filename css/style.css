@@ -2865,8 +2865,47 @@ footer{
 .slick-dots .slick-active{
 	background: #BE963F;
 }
-
-/*.quiz-6{
+.w_btns-active footer{
+	padding-bottom: 80px;
+}
+.w_btns-active .w_btns{
+	height: 60px;
+}
+.w_btns{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 0;
+	transition: 0.3s;
+	z-index: 100;
+}
+.w_btns-in{
+	display: flex;
+	border-radius: 10px;
+	overflow: hidden;
+	height: 60px;
+}
+.w_btn{
+	height: 100%;
+	width: 50%;
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 19px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.w_btn a{
+	width: 100%;
 	display: block;
-	opacity: 1;
-}*/
+	text-align: center;
+}
+.w_btn__wa{
+	background: linear-gradient(180deg, #60D66A 0%, #21B139 100%);
+	color: #fff;
+}
+.w_btn__quiz{
+	color: #34280E;
+	background: linear-gradient(93.71deg, #F3C87A -1.69%, #F3EECA 37.69%, #B39556 77.32%, #EED489 110.18%);
+}

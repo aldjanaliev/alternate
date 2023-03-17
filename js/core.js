@@ -260,7 +260,6 @@ $(document).ready(function() {
     setTimeout(() => {
       gifName = $('.quiz-gif .rad:checked').val()
       gifNum = $('.quiz-gif .rad:checked').closest('.quiz_item').index() + 1
-      console.log(gifNum)
       $('.quiz_side-title__js').text(gifName)
       $('.js-quiz_contact-img').attr("src",`img/quiz/gif-${gifNum}.jpg`)
       loadQuizCount++
@@ -366,7 +365,16 @@ $(document).ready(function() {
     $('.h_mob-add-wrap').slideToggle(300)
   })
 
-
+  var target = $("#js-w_btns");
+  var targetPos = target.offset().top;
+  var winHeight = $(window).height();
+  var scrollToElem = targetPos - winHeight;
+  $(window).scroll(function(){
+    var winScrollTop = $(this).scrollTop();
+    if(winScrollTop > scrollToElem && $(window).width() < 580 && !$('body').hasClass('w_btns-active')){
+      $('body').addClass('w_btns-active')
+    }
+  });
   
 
   
