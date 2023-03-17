@@ -715,6 +715,7 @@ h1 span{
 }
 .quiz_name-wrap{
 	position: relative;
+	display: block;
 }
 .quiz_name-wrap::before{
 	content: '';
@@ -2818,6 +2819,7 @@ footer{
 	color: #836A36;
 	margin: 0 -2px;
 	transition: 0.4s;
+	z-index: 10;
 	display: inline-block;
 }
 .load{
@@ -2863,3 +2865,8 @@ footer{
 .slick-dots .slick-active{
 	background: #BE963F;
 }
+
+/*.quiz-6{
+	display: block;
+	opacity: 1;
+}*/

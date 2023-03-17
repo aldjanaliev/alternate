@@ -263,6 +263,7 @@ $(document).ready(function() {
       console.log(gifNum)
       $('.quiz_side-title__js').text(gifName)
       $('.js-quiz_contact-img').attr("src",`img/quiz/gif-${gifNum}.jpg`)
+      loadQuizCount++
       quizChange(lastQuiz - 2, lastQuiz - 1)
     },3500)
   }
@@ -291,8 +292,8 @@ $(document).ready(function() {
       $('.quiz-' + arg2).css({'opacity':'1'})
       if(arg2 === lastQuiz - 2 && loadQuizCount === 0){
         setTimeout(() => {
-          loadQuiz()
           loadQuizCount++
+          loadQuiz()
         },200)
       } else if(arg2 === lastQuiz - 1){
         $(`.quiz-wrap`).addClass('quiz_get-contact')
