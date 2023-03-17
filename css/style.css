@@ -2499,6 +2499,8 @@ line-height: 36px;
 }
 footer{
 	padding: 40px 0;
+	position: relative;
+	z-index: 15;
 }
 .foot{
 	display: flex;
