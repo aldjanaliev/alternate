@@ -1,8 +1,6 @@
 $(document).ready(function() {
   const lastQuiz = $('.quiz').length
   $(`.quiz-${lastQuiz-2}`).addClass('quiz-load')
-	// ====== inputmask ======
-	$('[type="tel"]').inputmask('+7 (999) 999-99-99');
 
 	$('.main_slider').each(function(i, e){
     let slideTab = $(e).closest('.slider_wrap').find('.tab_slider')
@@ -54,6 +52,9 @@ $(document).ready(function() {
       }
     ]
   })
+
+  // ====== inputmask ======
+  $('[type="tel"]').inputmask('+7 (999) 999-99-99');
 
 	if(document.querySelector('.to-show_btn')){
 		let historyBtn = document.querySelectorAll('.to-show_btn')
@@ -186,8 +187,6 @@ $(document).ready(function() {
     // }).done(function() {
     //   th.trigger("reset");
     //   console.log('send is success')
-        $('[type="tel"]').val($(this).find('[type="tel"]').val())
-        $('form button[type="submit"]').addClass('active')
         if($(this).hasClass('form_quiz')){
           quizChange(lastQuiz - 1, lastQuiz)
         } else{
@@ -371,8 +370,12 @@ $(document).ready(function() {
   var scrollToElem = targetPos - winHeight;
   $(window).scroll(function(){
     var winScrollTop = $(this).scrollTop();
-    if(winScrollTop > scrollToElem && $(window).width() < 580 && !$('body').hasClass('w_btns-active')){
-      $('body').addClass('w_btns-active')
+    if($(window).width() < 580){
+      if(winScrollTop > scrollToElem && !$('body').hasClass('w_btns-active')){
+        $('body').addClass('w_btns-active')
+      } else if(winScrollTop < scrollToElem && $('body').hasClass('w_btns-active')) {
+        $('body').removeClass('w_btns-active')
+      }
     }
   });
   

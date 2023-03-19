@@ -101,6 +101,19 @@
 	.payment_in{
 		background-size: 270px 200px;
 	}
+	.works_btn-wrap{
+		margin-top: 20px;
+	}
+	.works_card{
+		padding: 30px 25px;
+	}
+	.works_content{
+		padding-left: 15px;
+		width: calc(100% - 260px);
+	}
+	.works_card .slider_wrap{
+		width: 260px;
+	}
 }
 @media screen and (max-width: 1200px) {
 	.th_content{
@@ -158,7 +171,9 @@
 	.history_title{
 		margin-bottom: 15px;
 	}
-	.history_info span,
+	.history_info span{
+		padding-bottom: 0;
+	}
 	.history_info p{
 		padding-bottom: 15px;
 	}
@@ -221,6 +236,16 @@
 	.sale_card-desc{
 		font-size: 14px;
 		line-height: 16px;
+	}
+	.works_cards{
+		justify-content: center;
+	}
+	.works_card{
+		width: 100%;
+		max-width: 600px;
+	}
+	.works_btn-wrap{
+		margin-top: 7px;
 	}
 }
 @media screen and (max-width: 1050px) {
@@ -388,7 +413,7 @@
 		line-height: 85px;
 	}
 	.section{
-		padding: 40px 0;
+		padding: 60px 0;
 	}
 	.revs .to-show_btn-wrap{
 		margin: 0 auto;
@@ -465,13 +490,6 @@
 		line-height: 22px;
 		margin-bottom: 20px;
 		padding-left: 43px;
-	}
-	.arrive_list li::before{
-		width: 19px;
-		height: 19px;
-		border-radius: 50%;
-		font-size: 0;
-		background: #BE963F;
 	}
 	.arrive_content .sec_title{
 		text-align: left;
@@ -759,6 +777,9 @@
 		display: flex;
 		justify-content: center;
 	}
+	.quiz_get-contact.quiz_end{
+		padding-bottom: 30px;
+	}
 }
 @media screen and (max-width: 780px) {
 	.h_mob-wrap{
@@ -802,7 +823,7 @@
 	.main_tag{
 		width: 140px;
 		height: 50px;
-		font-size: 9px;
+		font-size: 8px;
 		padding: 3px;
 	}
 	.main_tag-in{
@@ -810,7 +831,7 @@
 		padding-top: 4px;
 	}
 	.main_tag-num{
-		font-size: 24px;
+		font-size: 22px;
 		line-height: 1;
 	}
 	.main_tag{
@@ -1223,7 +1244,7 @@
 }
 @media screen and (max-width: 580px) {
 	.container{
-		width: 375px;
+		width: 374px;
 	}
 	h1 span{
 		display: block;
@@ -1271,6 +1292,9 @@
 		padding-bottom: 10px;
 		height: auto;
 	}
+	.quiz_item .quiz_label{
+		padding-left: 40px;
+	}
 	.quiz_top{
 		height: 105px;
 	}
@@ -1298,8 +1322,8 @@
 		font-size: 13px;
 	}
 	.quiz_name-desc{
-		text-align: right;
-		white-space: nowrap;
+    margin-left: -30px;
+    display: block;
 	}
 	.th_img{
 		width: 100%;
@@ -1446,9 +1470,5 @@
 	.quiz_name-wrap{
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;
-	}
-	.quiz_name-desc{
-		padding-right: 5px;
 	}
 }
