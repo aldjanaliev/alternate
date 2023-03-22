@@ -99,7 +99,7 @@
 		padding-right: 30px;
 	}
 	.payment_in{
-		background-size: 270px 200px;
+		background-size: 416px 334px;
 	}
 	.works_btn-wrap{
 		margin-top: 20px;
@@ -116,6 +116,9 @@
 	}
 }
 @media screen and (max-width: 1200px) {
+	.payment_in{
+		background-size: 270px 200px;
+	}
 	.th_content{
 	}
 	.th_title{
@@ -782,6 +785,9 @@
 	}
 }
 @media screen and (max-width: 780px) {
+	.works_par{
+		padding-top: 0;
+	}
 	.h_mob-wrap{
 		display: block;
 	}

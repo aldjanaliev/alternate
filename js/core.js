@@ -189,6 +189,8 @@ $(document).ready(function() {
     //   console.log('send is success')
         if($(this).hasClass('form_quiz')){
           quizChange(lastQuiz - 1, lastQuiz)
+        } else if($(this).hasClass('form_catalog')){
+          window.open('files/catalog.pdf')
         } else{
           window.open('result.html')
         }
