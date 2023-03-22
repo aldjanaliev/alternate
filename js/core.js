@@ -189,9 +189,28 @@ $(document).ready(function() {
     //   console.log('send is success')
         if($(this).hasClass('form_quiz')){
           quizChange(lastQuiz - 1, lastQuiz)
+          ym(92907142, 'reachGoal', 'contacts')
         } else if($(this).hasClass('form_catalog')){
+          ym(92907142, 'reachGoal', 'katalog')
           window.open('files/catalog.pdf')
-        } else{
+        } else if($(this).hasClass('form_designer')){
+          ym(92907142, 'reachGoal', 'design')
+        } else if($(this).hasClass('form_pay')){
+          ym(92907142, 'reachGoal', 'rassrochka')
+        } else if($(this).hasClass('form_consult')){
+          ym(92907142, 'reachGoal', 'konsult')
+        } 
+        else if($(this).hasClass('form_moika')){
+          ym(92907142, 'reachGoal', 'moika')
+        } else if($(this).hasClass('form_stoleshniza')){
+          ym(92907142, 'reachGoal', 'stoleshniza')
+        } else if($(this).hasClass('form_skidka')){
+          ym(92907142, 'reachGoal', 'skidka')
+        } else if($(this).hasClass('form_montag')){
+          ym(92907142, 'reachGoal', 'montag')
+        } 
+
+        else{
           window.open('result.html')
         }
     // });
@@ -268,6 +287,7 @@ $(document).ready(function() {
     },3500)
   }
   function quizChange(arg1, arg2){
+    ym(92907142, 'reachGoal', 'Q' + (arg2 - 1))
     setTimeout(function() {
       $('.quiz-' + arg1).css({'opacity':'0'})
       $('html, body').animate({
