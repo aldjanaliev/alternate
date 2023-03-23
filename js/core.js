@@ -193,25 +193,23 @@ $(document).ready(function() {
         } else if($(this).hasClass('form_catalog')){
           ym(92907142, 'reachGoal', 'katalog')
           window.open('files/catalog.pdf')
-        } else if($(this).hasClass('form_designer')){
-          ym(92907142, 'reachGoal', 'design')
-        } else if($(this).hasClass('form_pay')){
-          ym(92907142, 'reachGoal', 'rassrochka')
-        } else if($(this).hasClass('form_consult')){
-          ym(92907142, 'reachGoal', 'konsult')
-        } 
-        else if($(this).hasClass('form_moika')){
-          ym(92907142, 'reachGoal', 'moika')
-        } else if($(this).hasClass('form_stoleshniza')){
-          ym(92907142, 'reachGoal', 'stoleshniza')
-        } else if($(this).hasClass('form_skidka')){
-          ym(92907142, 'reachGoal', 'skidka')
-        } else if($(this).hasClass('form_montag')){
-          ym(92907142, 'reachGoal', 'montag')
-        } 
-
-        else{
-          window.open('result.html')
+        } else{
+          if($(this).hasClass('form_designer')){
+            ym(92907142, 'reachGoal', 'design')
+          } else if($(this).hasClass('form_pay')){
+            ym(92907142, 'reachGoal', 'rassrochka')
+          } else if($(this).hasClass('form_consult')){
+            ym(92907142, 'reachGoal', 'konsult')
+          } else if($(this).hasClass('form_moika')){
+            ym(92907142, 'reachGoal', 'moika')
+          } else if($(this).hasClass('form_stoleshniza')){
+            ym(92907142, 'reachGoal', 'stoleshniza')
+          } else if($(this).hasClass('form_skidka')){
+            ym(92907142, 'reachGoal', 'skidka')
+          } else if($(this).hasClass('form_montag')){
+            ym(92907142, 'reachGoal', 'montag')
+          }
+          window.location.href = 'result.html';
         }
     // });
 

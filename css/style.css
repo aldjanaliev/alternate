@@ -1710,10 +1710,6 @@ h1 span{
 	margin: 0 auto;
 	display: block;
 	max-width: 250px;
-	transition: 0.3s;
-}
-.arrive_img-txt:hover{
-	color: #F3C87A;
 }
 .materials .sec_title{
 	margin-bottom: 30px;
