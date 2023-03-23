@@ -11,14 +11,14 @@
 	$mail->IsHTML(true);
 
 	// от кого письмо
-	$mail->setFrom('info@' . $_SERVER['HTTP_HOST'], 'Элайнеры - promo');
+	$mail->setFrom('info@' . $_SERVER['HTTP_HOST'], 'Альтернатива');
 	// кому отправить
 	// $admin_email  = ['quiz24-job@yandex.ru'];
 	$admin_email  = ['alt-mf@yandex.ru', 'alt-mf@yandex.ru', 'alt-mf@yandex.ru', 'alt-mf@yandex.ru'];
 	foreach ( $admin_email as $key => $value ) {
 		$mail->addAddress($value);
 	}
-	$form_subject = 'Заявка с сайта promo.eurokappa.moscow';
+	$form_subject = 'Заявка с сайта Альтернатива';
 	$mail->Subject = $form_subject;
 
 	$c = true;
@@ -57,6 +57,9 @@
 	// 		$mail->addAttachment($fileAttach);
 	// 	}
 	// }
+
+	# не отправлять если есть чужая ссылка
+	if(stristr($message, "http") || stristr($message, "www") || stristr($message, "@")) exit();
 	
 	$body = $message;
 	// $mail->isHTML(true);  это если прям верстка

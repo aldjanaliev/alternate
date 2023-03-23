@@ -31,6 +31,9 @@
 	}
 }
 @media screen and (max-width: 1450px) {
+	.works_par{
+		padding-top: 0;
+	}
 	.video{
 		width: 120px;
 		height: 160px;
