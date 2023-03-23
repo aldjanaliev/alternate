@@ -401,6 +401,14 @@ $(document).ready(function() {
 
   // ====== inputmask ======
   $('[type="tel"]').inputmask('+7 (999) 999-99-99');
-
-  
+  $('.input_time').inputmask('99 : 99');
+  $('.input_time').on('input', function(){
+    if($(this).val()[0] > 2){
+      $(this).val(2)[0]
+    } else if($(this).val()[0] == 2 && $(this).val()[1] > 3){
+      $(this).val(23)
+    } else if($(this).val()[5] > 5){
+      $(this).val($(this).val()[0] + $(this).val()[1] + ' : 59')
+    }
+  })
 })
