@@ -36,6 +36,8 @@ $(document).ready(function() {
     slidesToShow: 3,
     slidesToScroll: 1,
     autoplay: 3000,
+    pauseOnFocus: true,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1200,
