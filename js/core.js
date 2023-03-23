@@ -55,9 +55,6 @@ $(document).ready(function() {
     ]
   })
 
-  // ====== inputmask ======
-  $('[type="tel"]').inputmask('+7 (999) 999-99-99');
-
 	if(document.querySelector('.to-show_btn')){
 		let historyBtn = document.querySelectorAll('.to-show_btn')
     historyBtn.forEach(el => {
@@ -401,6 +398,9 @@ $(document).ready(function() {
     }
   });
   
+
+  // ====== inputmask ======
+  $('[type="tel"]').inputmask('+7 (999) 999-99-99');
 
   
 })
